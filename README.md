@@ -14,11 +14,12 @@ Server Inspectorᴮᴱᵀᴬ is a Discord bot designed to monitor your server fr
 
 ## Bot Stats
 
-- 🆙 Uptime: 99.9%
-- 📊 Server Count: 26 servers
-- 👥 Total Users: 27,359 users
-- ⛔️ Kicked Spammers: 98 spammers
-- 🔗 Blocked Links: 251 links
+- 🆙 Uptime: ![Uptime](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Fserverinspector.vercel.app%2Fapi%2Fshields%3Fstat%3DUptime)
+- 📊 Server Count: ![Server Count](https://img.shields.io/endpoint?color=green&url=https%3A%2F%2Fserverinspector.vercel.app%2Fapi%2Fshields%3Fstat%3DGuild%2520count)
+- 👥 Total Users: ![Total Users](https://img.shields.io/endpoint?color=red&url=https%3A%2F%2Fserverinspector.vercel.app%2Fapi%2Fshields%3Fstat%3DUser%2520count)
+- ⛔️ Kicked Spammers: ![Kicked Spammers](https://img.shields.io/endpoint?color=yellow&url=https%3A%2F%2Fserverinspector.vercel.app%2Fapi%2Fshields%3Fstat%3DSpammers%2520kicked)
+- 🔗 Blocked Links: ![Blocked Links](https://img.shields.io/endpoint?color=orange&url=https%3A%2F%2Fserverinspector.vercel.app%2Fapi%2Fshields%3Fstat%3DLinks%2520blocked)
+
 
 ## Invite Server Inspector
 
