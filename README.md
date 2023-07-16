@@ -1,6 +1,6 @@
 # Server Inspectorᴮᴱᵀᴬ
 
-Server Inspectorᴮᴱᵀᴬ is a Discord bot designed to monitor your server from bots, links, and other security risks. It is developed using Next.js and hosts a website as the landing page for the bot.
+Server Inspectorᴮᴱᵀᴬ is a Discord bot designed to monitor your server from bots, links, and other security risks.
 
 ## Features
 
@@ -22,9 +22,10 @@ Server Inspectorᴮᴱᵀᴬ is a Discord bot designed to monitor your server fr
 
 ## Invite Server Inspector
 
-To invite Server Inspector to your server, [click here](https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot)
+[<img src="https://img.shields.io/badge/Invite-Server%20Inspector-blue?style=for-the-badge&logo=discord" alt="Invite Server Inspector"/>](https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot)
 
-For support, you can [join our support server](https://discord.com/invite/gN6zG964bj).
+[<img src="https://img.shields.io/badge/Join-Support%20Server-blue?style=for-the-badge&logo=discord" alt="Join Support Server"/>](https://discord.com/invite/gN6zG964bj)
+
 
 ## Contributing
 
