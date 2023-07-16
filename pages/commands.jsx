@@ -5,6 +5,15 @@ import Link from "next/link";
 export default function Commands() {
   const [selectedCommand, setSelectedCommand] = useState(null);
 
+  const handleUseCommand = async (command) => {
+    try {
+      await navigator.clipboard.writeText(command);
+      alert('Command copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+  
   const commands = [
     { command: "/help", description: "List of all commands."},
     { command: "/invite", description: "Invite Server Inspector to your server."},
@@ -80,18 +89,18 @@ export default function Commands() {
               </Menu.Items>
             </Transition>
           </Menu>
-          {selectedCommand && (
-            <div className="mt-5 p-4 bg-amber-700 rounded-md border border-amber-500 text-white shadow-md">
-              <h2 className="text-lg font-medium mb-2 border-b border-amber-500">Selected Command</h2>
-              <div className="bg-amber-600 p-2 rounded-md mt-2 flex justify-between items-center">
-                <div>
-                  <p className="font-semibold text-xl">{selectedCommand.command}</p>
-                  <p className="text-opacity-75">{selectedCommand.description}</p>
+            {selectedCommand && (
+              <div className="mt-5 p-4 rounded-md border border-amber-500 text-white shadow-md">
+                <h2 className="text-lg font-medium mb-2 border-b border-amber-500">Selected Command</h2>
+                <div className="bg-amber-700 p-2 rounded-md mt-2 flex justify-between items-center">
+                  <div>
+                    <p className="font-semibold text-xl">{selectedCommand.command}</p>
+                    <p className="text-opacity-75">{selectedCommand.description}</p>
+                  </div>
+                  <button onClick={() => handleUseCommand(selectedCommand.command)} className="p-1 border-2 border-amber-500 bg-amber-500 text-black rounded hover:bg-amber-400 transition-colors duration-200">Use Command</button>
                 </div>
-                <button className="p-1 bg-amber-500 rounded text-white hover:bg-amber-400 transition-colors duration-200">Use Command</button>
               </div>
-            </div>
-          )}
+            )}
         </div>
         <div className="animateHeader mt-10 flex flex-wrap items-center justify-center gap-x-4">
           <Link href={"https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot"}>
