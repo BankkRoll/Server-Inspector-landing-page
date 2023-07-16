@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react';
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Index() {
+  const [botStats, setBotStats] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/fetch-stats')
+      .then(response => response.json())
+      .then(data => setBotStats(data));
+  }, []);
+
+
   return (
     <>
       <div className="py-20 mb-30 max-w-3xl mx-auto">
@@ -86,37 +96,40 @@ export default function Index() {
             <div className="lg:mx-4 lg:p-8 py-4 lg:py-16 flex items-center justify-center flex-col text-center w-full lg:w-auto lg:text-left lg:flex-none">
               <img src="/img/panel.gif"  width="256" className="lg:hidden rounded-xl mb-5 shadow-xl shadow-black" />
               <p className="text-3xl text-white font-semibold">Enhance Your Server Security</p>
-              <p className="text-md text-white font-medium text-gray-500 line-clamp-5">Are you ready to enhance your server security with Server Inspector?</p>
+              <p className="text-md font-medium text-gray-500 line-clamp-5">Are you ready to enhance your server security with Server Inspector?</p>
             </div>
             <img src="/img/panel.gif" className="hidden lg:block rounded-xl perspective-right shadow-xl shadow-black" />
           </>
       </div>
 
-      <div className={`mt-16 p-6 text-center border border-amber-500/60 text-white rounded-lg`}>
-        <h2 className="text-3xl font-semibold">Bot Stats</h2>
-        <div className="flex flex-wrap justify-center mt-6 space-x-4">
-          <div className="px-2">
-            <h3 className="text-xl font-semibold">🆙 Uptime</h3>
-            <p className="text-lg">99.9%</p>
-          </div>
-          <div className="px-2">
-            <h3 className="text-xl font-semibold">📊 Server Count</h3>
-            <p className="text-lg">26 servers</p>
-          </div>
-          <div className="px-2">
-            <h3 className="text-xl font-semibold">👥 Total Users</h3>
-            <p className="text-lg">27,359 users</p>
-          </div>
-          <div className="px-2">
-            <h3 className="text-xl font-semibold">⛔️ Kicked Spammers</h3>
-            <p className="text-lg">98 spammers</p>
-          </div>
-          <div className="px-2">
-            <h3 className="text-xl font-semibold">🔗 Blocked Links</h3>
-            <p className="text-lg">251 links</p>
+      {botStats && (
+        <div className={`mt-16 p-6 text-center border border-amber-500/60 text-white rounded-lg`}>
+          <h2 className="text-3xl font-semibold">Live Bot Stats</h2>
+          <p className="text-sm text-gray-400">Updates every 6 hours</p>
+          <div className="flex flex-wrap justify-center mt-6 space-x-4">
+            <div className="px-2">
+              <h3 className="text-xl font-semibold">🆙 Uptime</h3>
+              <p className="text-lg">{botStats["Uptime"]}</p>
+            </div>
+            <div className="px-2">
+              <h3 className="text-xl font-semibold">📊 Server Count</h3>
+              <p className="text-lg">{botStats["Guild count"]} servers</p>
+            </div>
+            <div className="px-2">
+              <h3 className="text-xl font-semibold">👥 Total Users</h3>
+              <p className="text-lg">{botStats["User count"].toLocaleString()} users</p> {/* Display the number with commas */}
+            </div>
+            <div className="px-2">
+              <h3 className="text-xl font-semibold">⛔️ Kicked Spammers</h3>
+              <p className="text-lg">{botStats["Spammers kicked"].toLocaleString()} spammers</p> {/* Display the number with commas */}
+            </div>
+            <div className="px-2">
+              <h3 className="text-xl font-semibold">🔗 Blocked Links</h3>
+              <p className="text-lg">{botStats["Links blocked"].toLocaleString()} links</p> {/* Display the number with commas */}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
