@@ -105,7 +105,7 @@ export default function Index() {
       {botStats && (
         <div className={`mt-16 p-6 text-center border border-amber-500/60 text-white rounded-lg`}>
           <h2 className="text-3xl font-semibold">Live Bot Stats</h2>
-          <p className="text-sm text-gray-400">Updates every 6 hours</p>
+          <p className="text-sm text-gray-400">Updates Hourly</p>
           <div className="flex flex-wrap justify-center mt-6 space-x-4">
             <div className="px-2">
               <h3 className="text-xl font-semibold">🆙 Uptime</h3>
