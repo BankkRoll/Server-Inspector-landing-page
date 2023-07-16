@@ -19,7 +19,7 @@ function msToTime(duration) {
 
 export default async function handler(req, res) {
   try {
-    const statName = req.query.stat;  // Get the stat name from the query parameters
+    const statName = req.query.stat;
 
     const response = await axios.get(`https://discord.com/api/channels/${process.env.CHANNEL_ID}/messages`, {
       headers: {
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
     const statsJsonString = statsString.slice(8, -3);
     const stats = JSON.parse(statsJsonString);
 
-    let statValue = stats[statName];  // Get the value of the requested stat
+    let statValue = stats[statName];
 
     // If the requested stat is "Uptime", convert it to a human-readable format
     if (statName === "Uptime") {
