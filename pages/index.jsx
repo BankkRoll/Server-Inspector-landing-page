@@ -81,7 +81,7 @@ export default function Index() {
           </div>
       </div>
 
-      <div className="flex flex-row w-full h-auto lg:h-56 my-14 lg:my-40 bg-gradient-to-br lg:px-30 from-neutral-900/90 flex items-center justify-start to-neutral-900/50 rounded-lg p-1 shadow-md">
+      <div className="flex flex-row w-full h-auto lg:h-56 my-14 lg:my-40 bg-gradient-to-br lg:px-30 from-neutral-900/90 items-center justify-start to-neutral-900/50 rounded-lg p-1 shadow-md border border-amber-500/60">
           <>
             <div className="lg:mx-4 lg:p-8 py-4 lg:py-16 flex items-center justify-center flex-col text-center w-full lg:w-auto lg:text-left lg:flex-none">
               <img src="/img/panel.gif"  width="256" className="lg:hidden rounded-xl mb-5 shadow-xl shadow-black" />
@@ -90,6 +90,32 @@ export default function Index() {
             </div>
             <img src="/img/panel.gif" className="hidden lg:block rounded-xl perspective-right shadow-xl shadow-black" />
           </>
+      </div>
+
+      <div className="mt-16 p-6 text-center border border-amber-500/60 text-white rounded-lg">
+        <h2 className="text-3xl font-semibold">Bot Stats</h2>
+        <div className="flex flex-wrap justify-center mt-6 space-x-4">
+          <div className="px-2">
+            <h3 className="text-xl font-semibold">🆙 Uptime</h3>
+            <p className="text-lg">99.9%</p>
+          </div>
+          <div className="px-2">
+            <h3 className="text-xl font-semibold">📊 Server Count</h3>
+            <p className="text-lg">26 servers</p>
+          </div>
+          <div className="px-2">
+            <h3 className="text-xl font-semibold">👥 Total Users</h3>
+            <p className="text-lg">27,359 users</p>
+          </div>
+          <div className="px-2">
+            <h3 className="text-xl font-semibold">⛔️ Kicked Spammers</h3>
+            <p className="text-lg">98 spammers</p>
+          </div>
+          <div className="px-2">
+            <h3 className="text-xl font-semibold">🔗 Blocked Links</h3>
+            <p className="text-lg">251 links</p>
+          </div>
+        </div>
       </div>
     </>
   )
