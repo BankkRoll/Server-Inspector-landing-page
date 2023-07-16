@@ -3,6 +3,8 @@ import { useEffect, useState, Fragment, useRef } from "react";
 import { useRouter } from "next/router";
 import { Menu, Transition } from '@headlessui/react';
 import { useTheme } from 'next-themes';
+import toast from 'react-hot-toast';
+import Toasts from "../Toastss";
 
 const MobileNavbar = ({ open, setOpen, NavItems }) => {
     const router = useRouter();
@@ -58,6 +60,7 @@ const Header = ({ $, NavItems }) => {
     const ChangeColor = id => {
         setTheme(id);
         setIsDiscovered(true);
+        toast(`Theme changed to ${id}`);
     }
 
     const [hue, setHue] = useState("");

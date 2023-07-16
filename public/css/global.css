@@ -440,3 +440,36 @@ code.embed-code {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+
+.toast-blue {
+  @apply border-blue-600 bg-blue-200 bg-opacity-50 text-blue-800;
+}
+
+.toast-violet {
+  @apply border-violet-600 bg-violet-200 bg-opacity-50 text-violet-800;
+}
+
+.toast-emerald {
+  @apply border-emerald-600 bg-emerald-200 bg-opacity-50 text-emerald-800;
+}
+
+.toast-rose {
+  @apply border-rose-600 bg-rose-200 bg-opacity-50 text-rose-800;
+}
+
+.toast-amber {
+  @apply border-amber-600 bg-amber-200 bg-opacity-50 text-amber-800;
+}
+
+.toast-red {
+  @apply border-red-600 bg-red-200 bg-opacity-50 text-red-800;
+}
+
+.toast-yellow {
+  @apply border-yellow-600 bg-yellow-200 bg-opacity-50 text-yellow-800;
+}
+
+.toast-cyan {
+  @apply border-cyan-600 bg-cyan-200 bg-opacity-50 text-cyan-800;
+}

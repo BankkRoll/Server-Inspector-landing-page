@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
+import { toast } from 'react-hot-toast';
 
 export default function Commands() {
   const [selectedCommand, setSelectedCommand] = useState(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleUseCommand = async (command) => {
     try {
       await navigator.clipboard.writeText(command);
-      alert('Command copied to clipboard');
+      toast.success('Command copied to clipboard');
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 5000);
     } catch (err) {
+      toast.error('Failed to copy text');
       console.error('Failed to copy text: ', err);
     }
   };
-  
+
   const commands = [
     { command: "/help", description: "List of all commands."},
     { command: "/invite", description: "Invite Server Inspector to your server."},
@@ -39,16 +44,16 @@ export default function Commands() {
 
   return (
     <>
-      <div>
-        <div className="flex w-full justify-center">
+      <div className="px-4 md:px-5 py-10 mx-auto max-w-7xl space-y-10 text-white">
+        <div className="flex justify-center w-full">
           <img width="200" src="/img/discord.gif" />
         </div>
-        <p className="text-xl font-medium text-white">
+        <h1 className="text-2xl md:text-4xl font-bold text-center">
           <i className="fal fa-cogs text-amber-400 mr-2" />
           Server Inspector Commands
-        </p>
-        <p className="text-white text-sm text-opacity-50 mb-5">
-          You can get information about the commands of the Server Inspector bot.
+        </h1>
+        <p className="text-base md:text-xl text-center text-opacity-75 mb-10">
+          Here you can find information about all the commands of the Server Inspector bot.
         </p>
 
         <div>
@@ -89,31 +94,34 @@ export default function Commands() {
               </Menu.Items>
             </Transition>
           </Menu>
-            {selectedCommand && (
-              <div className="mt-5 p-4 rounded-md border border-amber-500 text-white shadow-md">
-                <h2 className="text-lg font-medium mb-2 border-b border-amber-500">Selected Command</h2>
-                <div className="bg-amber-700 p-2 rounded-md mt-2 flex justify-between items-center">
-                  <div>
-                    <p className="font-semibold text-xl">{selectedCommand.command}</p>
-                    <p className="text-opacity-75">{selectedCommand.description}</p>
-                  </div>
-                  <button onClick={() => handleUseCommand(selectedCommand.command)} className="p-1 border-2 border-amber-500 bg-amber-500 text-black rounded hover:bg-amber-400 transition-colors duration-200">Use Command</button>
+          {selectedCommand && (
+            <div className="mt-5 p-4 rounded-md border border-amber-500 text-white shadow-md bg-gray-800">
+                <div className="flex justify-between items-center mb-2 border-b border-amber-500 pb-2">
+                    <h2 className="text-lg font-medium">Selected Command</h2>
+                    <button onClick={() => handleUseCommand(selectedCommand.command)} className="flex items-center px-2 justify-center gap-2 shadow-lg shadow-amber-600/20 rounded-xl py-2 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white">
+                      <i className="fas fa-clipboard"></i>{isCopied ? " Copied!" : " Copy"}
+                    </button>
                 </div>
-              </div>
-            )}
+                <div className="bg-amber-700 p-4 rounded-md mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div className="mb-4 md:mb-0 pr-10">
+                        <p className="font-semibold text-xl md:text-2xl mb-2">{selectedCommand.command}</p>
+                        <p className="text-opacity-75 text-lg">{selectedCommand.description}</p>
+                    </div>
+                </div>
+            </div>
+          )}
         </div>
-        <div className="animateHeader mt-10 flex flex-wrap items-center justify-center gap-x-4">
-          <Link href={"https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot"}>
-            <a className={"flex items-center px-6 justify-center gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white " }>
-              Invite Server Inspector
-            </a>
-          </Link>
-          <div className="py-10"></div>
-          <Link href={"https://discord.com/invite/gN6zG964bj"}>
-            <a className={" px-6 justify-center gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white " }>
-              Join Support Server
-            </a>
-          </Link>
+        <div className="animateHeader mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-6">
+        <Link href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot">
+          <a className="flex items-center px-6 justify-center gap-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white">
+            Invite Server Inspector
+          </a>
+        </Link>
+        <Link href="https://discord.com/invite/gN6zG964bj">
+          <a className="px-6 justify-center gap-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white">
+            Join Support Server
+          </a>
+        </Link>
         </div>
       </div>
       <div className="py-20"></div>

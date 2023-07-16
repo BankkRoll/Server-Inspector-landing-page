@@ -14,6 +14,7 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 import { ThemeProvider } from 'next-themes'
+import Toasts from "../components/Toastss";
 
 export default function AwardApp({ Component, pageProps }) {
  
@@ -66,6 +67,7 @@ export default function AwardApp({ Component, pageProps }) {
         <script src="/js/main.js?i=2" />
       </div>
     </div>
+    <Toasts />
     </ThemeProvider>
   );
 }
