@@ -9,10 +9,10 @@ function msToTime(duration) {
 
   let uptime = "";
 
-  if(days > 0) uptime += `${days} days, `;
-  if(hours > 0) uptime += `${hours} hours, `;
-  if(minutes > 0) uptime += `${minutes} minutes, `;
-  uptime += `${seconds} seconds`;
+  if(days > 0) uptime += `${days} D, `;
+  if(hours > 0) uptime += `${hours} H, `;
+  if(minutes > 0) uptime += `${minutes} M, `;
+  uptime += `${seconds} S`;
 
   return uptime;
 }
