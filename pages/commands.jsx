@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 
 export default function Commands() {
+  const [selectedCommand, setSelectedCommand] = useState(null);
+
   const commands = [
     { command: "/help", description: "List of all commands."},
     { command: "/invite", description: "Invite Server Inspector to your server."},
@@ -61,7 +64,10 @@ export default function Commands() {
                 <div className="px-1 py-1 w-full">
                 {commands.map((command, index) => (
                   <Menu.Item key={index}>
-                    <div className={`w-full rounded-lg p-2 cursor-pointer text-white flex items-center space-x-3 transition-all duration-200`}>
+                    <div 
+                      onClick={() => setSelectedCommand(command)}
+                      className={`w-full rounded-lg p-2 cursor-pointer text-white flex items-center space-x-3 transition-all duration-200`}
+                    >
                       <i className="fa-spin text-xl text-white text-opacity-20" />
                       <div>
                         <p className="font-bold">{command.command}</p>
@@ -74,6 +80,13 @@ export default function Commands() {
               </Menu.Items>
             </Transition>
           </Menu>
+          {selectedCommand && (
+            <div className="mt-5">
+              <h2 className="text-lg font-medium text-white">Selected Command</h2>
+              <p className="text-white">{selectedCommand.command}</p>
+              <p className="text-white">{selectedCommand.description}</p>
+            </div>
+          )}
         </div>
         <div className="animateHeader mt-10 flex flex-wrap items-center justify-center gap-x-4">
           <Link href={"https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot"}>
