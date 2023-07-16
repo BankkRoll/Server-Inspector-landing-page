@@ -4,13 +4,30 @@ import Image from "next/image";
 
 export default function Index() {
   const [botStats, setBotStats] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/fetch-stats')
-      .then(response => response.json())
-      .then(data => setBotStats(data));
+    const fetchStats = async () => {
+      try {
+        const res = await fetch('/api/fetch-stats');
+        const data = await res.json();
+        setBotStats(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Failed to fetch bot stats:', err);
+        setIsLoading(false);
+      }
+    }
+    fetchStats();
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -117,15 +134,15 @@ export default function Index() {
             </div>
             <div className="px-2">
               <h3 className="text-xl font-semibold">👥 Total Users</h3>
-              <p className="text-lg">{botStats["User count"].toLocaleString()} users</p> {/* Display the number with commas */}
+              <p className="text-lg">{botStats["User count"].toLocaleString()} users</p>
             </div>
             <div className="px-2">
               <h3 className="text-xl font-semibold">⛔️ Kicked Spammers</h3>
-              <p className="text-lg">{botStats["Spammers kicked"].toLocaleString()} spammers</p> {/* Display the number with commas */}
+              <p className="text-lg">{botStats["Spammers kicked"].toLocaleString()} spammers</p>
             </div>
             <div className="px-2">
               <h3 className="text-xl font-semibold">🔗 Blocked Links</h3>
-              <p className="text-lg">{botStats["Links blocked"].toLocaleString()} links</p> {/* Display the number with commas */}
+              <p className="text-lg">{botStats["Links blocked"].toLocaleString()} links</p>
             </div>
           </div>
         </div>

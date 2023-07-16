@@ -9,18 +9,25 @@ function msToTime(duration) {
 
   let uptime = "";
 
-  if(days > 0) uptime += `${days} D, `;
-  if(hours > 0) uptime += `${hours} H, `;
-  if(minutes > 0) uptime += `${minutes} M, `;
-  uptime += `${seconds} S`;
+  if(days > 0) {
+    uptime += `${days} day${days !== 1 ? "s" : ""} `;
+    if(hours > 0) uptime += `${hours} hour${hours !== 1 ? "s" : ""}`;
+  } else if(hours > 0) {
+    uptime += `${hours} hour${hours !== 1 ? "s" : ""} `;
+    if(minutes > 0) uptime += `${minutes} minute${minutes !== 1 ? "s" : ""}`;
+  } else if(minutes > 0) {
+    uptime += `${minutes} minute${minutes !== 1 ? "s" : ""} `;
+    if(seconds > 0) uptime += `${seconds} second${seconds !== 1 ? "s" : ""}`;
+  } else {
+    uptime += `${seconds} second${seconds !== 1 ? "s" : ""}`;
+  }
 
-  return uptime;
+  return uptime.trim();
 }
+
 
 export default async function handler(req, res) {
   try {
-    // console.log('Starting to fetch the stats...');
-    // Use process.env.CHANNEL_ID to access the channel ID from the environment variables
     const response = await axios.get(`https://discord.com/api/channels/${process.env.CHANNEL_ID}/messages`, {
       headers: {
         'Authorization': `Bot ${process.env.TOKEN}`
@@ -29,8 +36,6 @@ export default async function handler(req, res) {
         limit: 1
       }
     });
-
-    // console.log('Response received from Discord API:', response.data);
 
     if (!response.data || response.data.length === 0) {
       throw new Error('No messages found in the channel.');
@@ -50,11 +55,9 @@ export default async function handler(req, res) {
     // Convert uptime to a human-readable format
     stats.Uptime = msToTime(stats.Uptime);
 
-    // console.log('Parsed stats:', stats);
 
     res.status(200).json(stats);
   } catch (error) {
-    // console.error('Error in fetch-stats:', error);
     res.status(500).json({ error: error.message });
   }
 }

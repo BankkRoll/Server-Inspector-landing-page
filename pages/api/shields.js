@@ -12,10 +12,11 @@ function msToTime(duration) {
   if(days > 0) uptime += `${days} days, `;
   if(hours > 0) uptime += `${hours} hours, `;
   if(minutes > 0) uptime += `${minutes} minutes, `;
-  uptime += `${seconds} seconds`;
+  if(seconds > 0) uptime += `${seconds} seconds`;
 
-  return uptime;
+  return uptime.replace(/,\s*$/, "");
 }
+
 
 export default async function handler(req, res) {
   try {
