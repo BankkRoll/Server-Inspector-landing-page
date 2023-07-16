@@ -81,10 +81,15 @@ export default function Commands() {
             </Transition>
           </Menu>
           {selectedCommand && (
-            <div className="mt-5">
-              <h2 className="text-lg font-medium text-white">Selected Command</h2>
-              <p className="text-white">{selectedCommand.command}</p>
-              <p className="text-white">{selectedCommand.description}</p>
+            <div className="mt-5 p-4 bg-amber-700 rounded-md border border-amber-500 text-white shadow-md">
+              <h2 className="text-lg font-medium mb-2 border-b border-amber-500">Selected Command</h2>
+              <div className="bg-amber-600 p-2 rounded-md mt-2 flex justify-between items-center">
+                <div>
+                  <p className="font-semibold text-xl">{selectedCommand.command}</p>
+                  <p className="text-opacity-75">{selectedCommand.description}</p>
+                </div>
+                <button className="p-1 bg-amber-500 rounded text-white hover:bg-amber-400 transition-colors duration-200">Use Command</button>
+              </div>
             </div>
           )}
         </div>
