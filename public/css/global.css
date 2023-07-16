@@ -119,6 +119,9 @@ body {
   vertical-align: baseline;
   margin-left: 0.25rem;
 }
+.border-color {
+  border-color: var(--border-color);
+}
 
 .embed {
   border-left: 4px solid
