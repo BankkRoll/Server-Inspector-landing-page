@@ -9,8 +9,8 @@ export default function Footer() {
         <>
             <footer className="py-10">
                 <div className="pt-10 mx-auto">
-                    <div className="lg:grid lg:grid-cols-6 gap-20">
-                        <div className="col-span-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 md:gap-20">
+                        <div className="col-span-2">
                             <div className="flex items-center space-x-5">
                             <Image src="/img/logo.jpg" className="rounded-full icon-glow" width={32} height={32} alt="logo" />
                                 <p className="font-semibold text-xl text-white">Server Inspectorᴮᴱᵀᴬ</p>
@@ -37,14 +37,18 @@ export default function Footer() {
                         <div className="col-span-1">
                             <p className="text-white font-medium mt-3 sm:mt-0 sm:mb-3">Links</p>
                             <div>
-                                <a href="https://discord.com/invite/gN6zG964bj" target="_blank" className="text-white/50 hover:text-white hover:underline transform duration-200">
-                                    Support Server
-                                </a>
+                                <Link href="/">
+                                    <a className="text-white/50 hover:text-white hover:underline transform duration-200">
+                                        Home
+                                    </a>
+                                </Link>
                             </div>
                             <div>
-                                <a href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot" target="_blank" className="text-white/50 hover:text-white hover:underline transform duration-200">
-                                    Invite Bot
-                                </a>
+                                <Link href="/commands">
+                                    <a className="text-white/50 hover:text-white hover:underline transform duration-200">
+                                        Commands
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-span-1">
@@ -62,6 +66,19 @@ export default function Footer() {
                                     <i className={`fa-brands fa-github`} /> Twitter
                                     </a>
                                 </Link>
+                            </div>
+                        </div>
+                        <div className="col-span-1">
+                            <p className="text-white font-medium mt-3 sm:mt-0 sm:mb-3">Join Us</p>
+                            <div>
+                                <a href="https://discord.com/invite/gN6zG964bj" target="_blank" className="text-white/50 hover:text-white hover:underline transform duration-200">
+                                    Support Server
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot" target="_blank" className="text-white/50 hover:text-white hover:underline transform duration-200">
+                                    Invite Bot
+                                </a>
                             </div>
                         </div>
                         <div className="col-span-1">
