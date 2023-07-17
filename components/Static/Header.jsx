@@ -99,9 +99,9 @@ const Header = ({ $, NavItems }) => {
         <>
             <header>
                 <div className="max-w-7xl px-2 mx-auto py-5 flex items-center justify-between">
-                    <div className="flex items-center space-x-6">
-                        <div className="flex items-center space-x-3">
-                        <Image src="/img/logo.jpg" className="rounded-full" width={48} height={48} alt="logo" />
+                    <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-1">
+                        <Image src="/img/logo.jpg" className="rounded-full" width={36} height={36} alt="logo" />
                             <p className="text-white font-semibold">
                                 <a href="/"><span className="text-amber-400">Server</span>Inspectorᴮᴱᵀᴬ</a>
                             </p>
