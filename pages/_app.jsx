@@ -5,6 +5,7 @@ import "tailwindcss/tailwind.css";
 import NProgress from "nprogress";
 import Router, { useRouter } from "next/router";
 import Head from "next/head";
+import { Analytics } from '@vercel/analytics/react';
 
 import Header from "../components/Static/Header.jsx";
 import Footer from "../components/Static/Footer.jsx";
@@ -68,6 +69,7 @@ export default function AwardApp({ Component, pageProps }) {
       </div>
     </div>
     <Toasts />
+    <Analytics />
     </ThemeProvider>
   );
 }
