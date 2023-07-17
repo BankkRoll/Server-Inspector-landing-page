@@ -36,11 +36,49 @@ let quiz = {
             answers: ['The data is stored in a single location', 'The data is spread across multiple nodes or participants', 'The data can be accessed faster'],
             correct: 1
         },
+        {
+            question: 'In Discord, what is the purpose of enabling two-factor authentication?',
+            answers: ['To unlock new Discord features', 'To add an extra layer of security to your Discord account', 'To increase the number of people that can join your server'],
+            correct: 1
+        },
+        {
+            question: 'What is a "server raid" in the context of Discord?',
+            answers: ['A fun event where users try to win prizes', 'A spam attack that can cause chaos and distract server administrators', 'A routine process for maintaining server performance'],
+            correct: 1
+        },
+        {
+            question: 'What is the purpose of "slowmode" in Discord?',
+            answers: ['To limit how fast messages can be sent, helping to control the pace of conversation', 'To deliberately slow down server performance', 'To limit the number of new members joining in a certain time period'],
+            correct: 0
+        },
+        {
+            question: 'In Web3, what is the purpose of "gas" in Ethereum?',
+            answers: ['To power virtual vehicles in Ethereum-based games', 'To pay for computations and transactions on the Ethereum network', 'A type of digital currency used within the Ethereum ecosystem'],
+            correct: 1
+        },
+        {
+            question: 'What is a "smart contract" in the context of Web3?',
+            answers: ['A digital version of a legal contract', 'A piece of code on the blockchain that automatically executes actions when certain conditions are met', 'A technique for speeding up website loading times'],
+            correct: 1
+        },
+        {
+            question: 'What does "cold admin" refer to in the context of Discord server security?',
+            answers: ['An admin who rarely participates in server activities', 'An account with high-level permissions that is used sparingly to improve security', 'An admin who hasnt logged into Discord for a long time'],
+            correct: 1
+        },
+        {
+            question: 'In Discord server security, what is the role of "audit logs"?',
+            answers: ['To keep track of the funniest memes shared in the server', 'To record administrative actions for future review, helping to identify and address security issues', 'To count how many messages each user sends'],
+            correct: 1
+        },
     ],
     currentQuestion: 0,
+    score: 0,
+    maxAttempts: 3,
     isRunning: false,
     start: function() {
         this.isRunning = true;
+        this.score = 0;
         this.questions.forEach(q => {
             q.correctAnswer = q.answers[q.correct];
             q.answers = shuffleArray(q.answers);
@@ -51,6 +89,7 @@ let quiz = {
     stop: function() {
         this.isRunning = false;
         this.currentQuestion = 0;
+        console.log(`%c🎉 Your final score is: ${this.score}`, 'color: green; font-size: 20px;');
     },
     askQuestion: function() {
         if (!this.isRunning) return;
@@ -59,25 +98,29 @@ let quiz = {
         
         if (answer === null || answer.toLowerCase() === 'close') {
             this.stop();
-            console.log('%c🛑 You stopped the quiz.', 'color: red; font-size: 20px;');
             return;
         }
         this.checkAnswer(answer);
     },
-    checkAnswer: function(answer) {
+    checkAnswer: function(answer, attempt = 1) {
         let question = this.questions[this.currentQuestion];
         if (answer == question.correct) {
-            console.log('%c👍 Correct answer!', 'color: green; font-size: 20px;');
+            console.log('%c👍 Correct answer! You earn 8.33 points.', 'color: green; font-size: 20px;');
+            this.score += 8.33;
         } else {
-            console.log('%c👎 Wrong answer, try again.', 'color: red; font-size: 20px;');
-            this.askQuestion();
-            return;
+            console.log('%c👎 Wrong answer.', 'color: red; font-size: 20px;');
+            if (attempt < this.maxAttempts) {
+                console.log('%c💡 Hint: Read the question carefully again.', 'color: yellow; font-size: 20px;');
+                let newAnswer = prompt(`Question: ${question.question}\nOptions:\n0: ${question.answers[0]}\n1: ${question.answers[1]}\n2: ${question.answers[2]}\nType 'close' to stop the quiz.`);
+                this.checkAnswer(newAnswer, attempt + 1);
+            } else {
+                console.log(`%c😢 You've reached the max attempts for this question. The correct answer was ${question.correctAnswer}. Moving on to the next question.`, 'color: orange; font-size: 20px;');
+            }
         }
         this.currentQuestion++;
         if (this.currentQuestion < this.questions.length) {
             this.askQuestion();
         } else {
-            console.log('%c🎉 Congratulations, you completed the security quiz!', 'color: green; font-size: 24px;');
             this.stop();
         }
     }
