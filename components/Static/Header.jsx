@@ -177,7 +177,7 @@ const Header = ({ $, NavItems }) => {
                             className="
                                 bg-transparent
                                 py-2
-                                pl-2
+                                pr-4
                                 text-white
                                 rounded-md
                                 text-center
