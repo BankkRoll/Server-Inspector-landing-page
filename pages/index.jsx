@@ -83,18 +83,17 @@ export default function Index() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-y-0 lg:gap-x-12 py-24">
-      <div className="col-span-4 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-xl p-6 shadow-xl border border-amber-500/60 perspective-left hover:scale-100 transition-transform duration-800 shadow-black duration-800 ease-in-out">
-        <p className="text-white text-4xl font-bold">
-            Server Inspectorᴮᴱᵀᴬ
-        </p>
-        <p className="text-white text-md font-medium text-gray-500/75 mt-4">
-            Protect your server from bots, links, and other security risks with Server Inspector.
-        </p>
-        <a href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot" className={"mt-10 flex items-center px-4 justify-center gap-x-2 shadow-lg shadow-amber-600/20 cursor-pointer rounded-xl py-4 font-medium bg-gradient-to-r from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
-            <i className="fab fa-discord mr-2" />Invite Server Inspector
-        </a>
+      <div className="col-span-4 sm:w-full lg:w-auto mx-auto bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-xl p-6 shadow-xl border border-amber-500/60 perspective-left hover:scale-100 transition-transform duration-800 shadow-black duration-800 ease-in-out">
+          <p className="text-white text-4xl font-bold">
+              Server Inspectorᴮᴱᵀᴬ
+          </p>
+          <p className="text-white text-md font-medium text-gray-500/75 mt-4">
+              Protect your server from bots, links, and other security risks with Server Inspector.
+          </p>
+          <a href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot" className={"mt-10 flex items-center px-4 justify-center gap-x-2 shadow-lg shadow-amber-600/20 cursor-pointer rounded-xl py-4 font-medium bg-gradient-to-r from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
+              <i className="fab fa-discord mr-2" />Invite Server Inspector
+          </a>
       </div>
-
 
 
           <div className="col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
