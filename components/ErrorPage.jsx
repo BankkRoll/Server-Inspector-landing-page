@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ const ErrorPage = ({ code, message }) => {
 
         <div className="max-w-7xl text-center py-20 mx-auto px-5">
         <div className="flex w-full justify-center mb-8">
-            <img width="250" src="/img/error.gif" />
+            <Image src="/img/error.gif" width={250} height={250} />
         </div>
             <h1 className="text-4xl font-extrabold text-white mb-4">{code}</h1>
             <p className="text-xl font-thin text-white text-opacity-75 mb-8">{message}</p>

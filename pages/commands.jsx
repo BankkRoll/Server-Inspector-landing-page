@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
+import Image from "next/image";
 import { toast } from 'react-hot-toast';
 
 export default function Commands() {
@@ -46,7 +47,12 @@ export default function Commands() {
     <>
       <div className="px-4 md:px-5 py-10 mx-auto max-w-7xl space-y-10 text-white">
         <div className="flex justify-center w-full">
-          <img width="200" src="/img/discord.gif" />
+        <Image
+            width={200}
+            height={200}
+            src="/img/discord.gif"
+            alt="Discord"
+          />
         </div>
         <h1 className="text-2xl md:text-4xl font-bold text-center">
           <i className="fal fa-cogs text-amber-400 mr-2" />

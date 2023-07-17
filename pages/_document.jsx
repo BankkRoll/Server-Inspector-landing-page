@@ -8,6 +8,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="apple-touch-icon" href="/logo.jpg" />
           <meta name="robots" content="index,follow" />
+          <link rel="robots" href="/robots.txt" type="text/plain" />
           <meta name="googlebot" content="index,follow" />
           <meta
             name="description"
@@ -46,6 +47,9 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="stylesheet" href="/css/nprogress.css" />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <Html lang="en" />
+
         </Head>
         <body>
           <Main />

@@ -1,10 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState, Fragment, useRef } from "react";
 import { useRouter } from "next/router";
 import { Menu, Transition } from '@headlessui/react';
 import { useTheme } from 'next-themes';
 import toast from 'react-hot-toast';
-import Toasts from "../Toastss";
 
 const MobileNavbar = ({ open, setOpen, NavItems }) => {
     const router = useRouter();
@@ -15,7 +15,7 @@ const MobileNavbar = ({ open, setOpen, NavItems }) => {
 
                 <div className="flex justify-between border-b border-white/20 items-center px-5 py-4">
                     <div className="flex items-center">
-                        <img width="32" className="rounded-full icon-glow" src="/img/logo_placeholder.jpg" />
+                        <Image src="/img/logo_placeholder.jpg" className="rounded-full icon-glow" width={32} height={32} alt="logo" />
                         <p className=" font-extrabold ml-1 text-2xl">Server Inspector</p>
                     </div>
                     <button onClick={() => setOpen(!open)}><i className="cursor-pointer fa fa-times text-xl mr-2" /></button>
@@ -61,6 +61,7 @@ const Header = ({ $, NavItems }) => {
         setTheme(id);
         setIsDiscovered(true);
         toast(`Theme changed to ${id}`);
+        setColors(false);
     }
 
     const [hue, setHue] = useState("");
@@ -86,14 +87,9 @@ const Header = ({ $, NavItems }) => {
                 <div className="max-w-7xl px-5 mx-auto py-5 flex items-center justify-between">
                     <div className="flex items-center space-x-6">
                         <div className="flex items-center space-x-3">
-                            <img src="/img/logo.jpg"
-                                className={`
-                                    rounded-full
-                                `}
-                                width="48" height="48"
-                            />
+                        <Image src="/img/logo.jpg" className="rounded-full" width={48} height={48} alt="logo" />
                             <p className="invisible md:visible text-xl text-white font-semibold">
-                              <a href="/"><span className="text-amber-400">Server</span>Inspector</a>
+                                <a href="/"><span className="text-amber-400">Server</span>Inspector</a>
                             </p>
                         </div>
                         <ul className="hidden lg:flex items-center space-x-4">
@@ -178,13 +174,12 @@ const Header = ({ $, NavItems }) => {
                         </Menu>
                         <Link href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot">
                             <a className="w-auto flex items-center justify-center shadow-lg gap-x-2 shadow-amber-600/20 rounded-xl py-2.5 font-medium px-7 bg-gradient-to-tl from-amber-500 to-amber-700 text-white  hover:opacity-80 transition duration-200">
-                               Invite
+                                Invite
                             </a>
-               </Link>
+                        </Link>
                     </div>
                 </div>
             </header>
-            
             <MobileNavbar open={open} setOpen={setOpen} NavItems={NavItems} Menu={() => setOpen(!open)} />
         </>
     );

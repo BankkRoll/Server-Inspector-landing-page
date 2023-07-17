@@ -33,7 +33,12 @@ export default function Index() {
     <>
       <div className="py-20 mb-30 max-w-3xl mx-auto">
         <div className="flex w-full justify-center">
-          <img width="200" src="/img/discord.gif" />
+          <Image
+            width={200}
+            height={200}
+            src="/img/discord.gif"
+            alt="Discord"
+          />
         </div>
         <p className="animateHeader text-4xl font-extrabold text-center text-white">
           Server Inspectorᴮᴱᵀᴬ
@@ -60,10 +65,20 @@ export default function Index() {
         </div>
 
         <div style={{ zIndex: '-1' }} className="hidden xl:block undrag pointer-events-none opacity-10 -left-[10vw] absolute top-[8vw] h-[35vw] flex-shrink-0 grayscale rotate-[1deg]">
-          <Image width="600" height="600" src="/img/code-left.png" />
+        <Image
+            width={600}
+            height={600}
+            src="/img/code-left.png"
+            alt="Code left"
+          />
         </div>
         <div style={{ zIndex: '-1' }} className="hidden xl:block undrag opacity-10 pointer-events-none -right-[15vw] absolute top-[13vw] h-[90vw] grayscale -rotate-9">
-          <Image  width="600" height="600" src="/img/code-right.png"  />
+        <Image
+            width={600}
+            height={600}
+            src="/img/code-right.png"
+            alt="Code right"
+          />
         </div>
       </div>
 
@@ -111,11 +126,11 @@ export default function Index() {
       <div className={`flex flex-row w-full h-auto lg:h-56 my-14 lg:my-40 bg-gradient-to-br lg:px-30 from-neutral-900/90 items-center justify-start to-neutral-900/50 rounded-lg p-1 shadow-md border border-amber-500/60`}>
           <>
             <div className="lg:mx-4 lg:p-8 py-4 lg:py-16 flex items-center justify-center flex-col text-center w-full lg:w-auto lg:text-left lg:flex-none">
-              <img src="/img/panel.gif"  width="256" className="lg:hidden rounded-xl mb-5 shadow-xl shadow-black" />
+              <img src="/img/panel.gif"  width="256" className="lg:hidden rounded-xl mb-5 shadow-xl shadow-black" alt="panel" />
               <p className="text-3xl text-white font-semibold">Enhance Your Server Security</p>
               <p className="text-md font-medium text-gray-500 line-clamp-5">Are you ready to enhance your server security with Server Inspector?</p>
             </div>
-            <img src="/img/panel.gif" className="hidden lg:block rounded-xl perspective-right shadow-xl shadow-black" />
+            <img src="/img/panel.gif" className="hidden lg:block rounded-xl perspective-right shadow-xl shadow-black" alt="panel" />
           </>
       </div>
 
