@@ -83,17 +83,19 @@ export default function Index() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-y-0 lg:gap-x-12 py-24">
-          <div className="col-span-4">
-            <p className="text-white text-4xl font-bold">
-              Server Inspectorᴮᴱᵀᴬ
-            </p>
-            <p className="text-white text-md font-medium text-gray-500/75">
-              Protect your server from bots, links, and other security risks with Server Inspector.
-            </p>
-            <a href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot" className={"mt-10 flex items-center px-4 justify-center gap-x-2 shadow-lg shadow-amber-600/20 cursor-pointer rounded-xl py-4 font-medium bg-gradient-to-r from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
-              <i className="fab fa-discord mr-2" />Invite Server Inspector
-            </a>
-          </div>
+      <div className="col-span-4 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-xl p-6 shadow-xl border border-amber-500/60 perspective-left hover:scale-100 transition-transform duration-800 shadow-black duration-800 ease-in-out">
+        <p className="text-white text-4xl font-bold">
+            Server Inspectorᴮᴱᵀᴬ
+        </p>
+        <p className="text-white text-md font-medium text-gray-500/75 mt-4">
+            Protect your server from bots, links, and other security risks with Server Inspector.
+        </p>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot" className={"mt-10 flex items-center px-4 justify-center gap-x-2 shadow-lg shadow-amber-600/20 cursor-pointer rounded-xl py-4 font-medium bg-gradient-to-r from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
+            <i className="fab fa-discord mr-2" />Invite Server Inspector
+        </a>
+      </div>
+
+
 
           <div className="col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
@@ -126,42 +128,42 @@ export default function Index() {
       <div className={`flex flex-row w-full h-auto lg:h-56 my-14 lg:my-40 bg-gradient-to-br lg:px-30 from-neutral-900/90 items-center justify-start to-neutral-900/50 rounded-lg p-1 shadow-md border border-amber-500/60`}>
           <>
             <div className="lg:mx-4 lg:p-8 py-4 lg:py-16 flex items-center justify-center flex-col text-center w-full lg:w-auto lg:text-left lg:flex-none">
-              <img src="/img/panel.gif"  width="256" className="lg:hidden rounded-xl mb-5 shadow-xl shadow-black" alt="panel" />
+              <img src="/img/panel.gif"  width="300" className="lg:hidden rounded-xl mb-5 shadow-xl shadow-black" alt="panel" />
               <p className="text-3xl text-white font-semibold">Enhance Your Server Security</p>
               <p className="text-md font-medium text-gray-500 line-clamp-5">Are you ready to enhance your server security with Server Inspector?</p>
             </div>
-            <img src="/img/panel.gif" className="hidden lg:block rounded-xl perspective-right shadow-xl shadow-black" alt="panel" />
+            <img src="/img/panel.gif" className="hidden lg:block rounded-xl perspective-right shadow-xl shadow-black hover:scale-100 transition-transform duration-800 ease-in-out" alt="panel" />
           </>
       </div>
 
       {botStats && (
         <div className={`mt-16 p-6 text-center border border-amber-500/60 text-white rounded-lg`}>
-          <h2 className="text-3xl font-semibold">Live Bot Stats</h2>
-          <p className="text-sm text-gray-400">Updates Hourly</p>
-          <div className="flex flex-wrap justify-center mt-6 space-x-4">
-            <div className="px-2">
-              <h3 className="text-xl font-semibold">🆙 Uptime</h3>
-              <p className="text-lg">{botStats["Uptime"]}</p>
+            <h2 className="text-3xl font-semibold mb-1">Live Bot Stats</h2>
+            <p className="text-sm text-gray-400 mb-6">Updates Hourly</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div className="flex flex-col items-center py-4 px-6 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg shadow-md perspective-left hover:scale-100 transition-transform duration-800 ease-in-out">
+                  <h3 className="text-xl font-semibold mb-2">🆙 Uptime</h3>
+                  <p className="text-lg">{botStats["Uptime"]}</p>
+                </div>
+                <div className="flex flex-col items-center py-4 px-6 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg shadow-md perspective-left hover:scale-100 transition-transform duration-800 ease-in-out">
+                  <h3 className="text-xl font-semibold mb-2">📊 Server Count</h3>
+                  <p className="text-lg">{botStats["Guild count"]} servers</p>
+                </div>
+                <div className="flex flex-col items-center py-4 px-6 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg shadow-md perspective-left hover:scale-100 transition-transform duration-800 ease-in-out">
+                  <h3 className="text-xl font-semibold mb-2">👥 Total Users</h3>
+                  <p className="text-lg">{botStats["User count"].toLocaleString()} users</p>
+                </div>
+                <div className="flex flex-col items-center py-4 px-6 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg shadow-md perspective-left hover:scale-100 transition-transform duration-800 ease-in-out">
+                  <h3 className="text-xl font-semibold mb-2">⛔️ Kicked Spammers</h3>
+                  <p className="text-lg">{botStats["Spammers kicked"].toLocaleString()} spammers</p>
+                </div>
+                <div className="flex flex-col items-center py-4 px-6 bg-gradient-to-br from-neutral-900/90 to-neutral-900/50 rounded-lg shadow-md perspective-left hover:scale-100 transition-transform duration-800 ease-in-out">
+                  <h3 className="text-xl font-semibold mb-2">🔗 Blocked Links</h3>
+                  <p className="text-lg">{botStats["Links blocked"].toLocaleString()} links</p>
+                </div>
             </div>
-            <div className="px-2">
-              <h3 className="text-xl font-semibold">📊 Server Count</h3>
-              <p className="text-lg">{botStats["Guild count"]} servers</p>
-            </div>
-            <div className="px-2">
-              <h3 className="text-xl font-semibold">👥 Total Users</h3>
-              <p className="text-lg">{botStats["User count"].toLocaleString()} users</p>
-            </div>
-            <div className="px-2">
-              <h3 className="text-xl font-semibold">⛔️ Kicked Spammers</h3>
-              <p className="text-lg">{botStats["Spammers kicked"].toLocaleString()} spammers</p>
-            </div>
-            <div className="px-2">
-              <h3 className="text-xl font-semibold">🔗 Blocked Links</h3>
-              <p className="text-lg">{botStats["Links blocked"].toLocaleString()} links</p>
-            </div>
-          </div>
         </div>
-      )}
+    )}
     </>
   )
 }
