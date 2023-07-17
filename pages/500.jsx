@@ -1,13 +1,16 @@
 import ErrorPage from '../components/ErrorPage';
+
 const UnkownPage = () => {
     let messages = [
-        "Oh no! It seems there is a 500 Internal Server Error. Please try again later!",
-        "Oh no! The server encountered an unexpected condition.",
-        "Oh no! The server is having some trouble. Please try again later.",
-        "Oh no! The server is currently down. Please try again later."
+        "500: The server decided to take a coffee break.",
+        "500: Our server is having a case of the Mondays.",
+        "500: The server is experiencing an identity crisis.",
+        "500: The server is currently meditating on the problem.",
+        "500: The server got rugged, be back soon.",
+        "500: The server must have gotten tangled in some webs."
     ];
 
-    return <ErrorPage code={500} message={messages[Math.floor(Math.random()*messages.length)] || "Internal Server Error."} />
+    return <ErrorPage message={messages[Math.floor(Math.random()*messages.length)] || "500: Internal Server Error."} />
 }
 
 export default UnkownPage;

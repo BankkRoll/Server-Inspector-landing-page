@@ -13,7 +13,7 @@ export default function Footer() {
                         <div className="col-span-3">
                             <div className="flex items-center space-x-5">
                             <Image src="/img/logo.jpg" className="rounded-full icon-glow" width={32} height={32} alt="logo" />
-                                <p className="font-semibold text-xl text-white">Server Inspector</p>
+                                <p className="font-semibold text-xl text-white">Server Inspectorᴮᴱᵀᴬ</p>
                             </div>
                             <Menu as="div" className="relative mt-3 inline-block text-left">
                                 <div>

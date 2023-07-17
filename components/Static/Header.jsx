@@ -8,6 +8,8 @@ import toast from 'react-hot-toast';
 
 const MobileNavbar = ({ open, setOpen, NavItems }) => {
     const router = useRouter();
+    const currentYear = new Date().getFullYear();
+
     return <>
         <div onClick={() => setOpen(false)} className={`${open ? '' : 'hidden'} w-full h-full z-50 fixed overflow-none top-0 backdrop-blur-sm lg:hidden`} />
         <div className={`transform ${open ? '' : 'translate-x-full'} transition-all duration-300 bg-black bg-opacity-90 text-white w-80 fixed rounded-l-xl z-60 right-0 top-0 h-full lg:translate-x-full`}>
@@ -15,8 +17,8 @@ const MobileNavbar = ({ open, setOpen, NavItems }) => {
 
                 <div className="flex justify-between border-b border-white/20 items-center px-5 py-4">
                     <div className="flex items-center">
-                        <Image src="/img/logo_placeholder.jpg" className="rounded-full icon-glow" width={32} height={32} alt="logo" />
-                        <p className=" font-extrabold ml-1 text-2xl">Server Inspector</p>
+                        <Image src="/img/logo_placeholder.jpg" className="rounded-full icon-glow" width={25} height={25} alt="logo" />
+                        <p className=" font-extrabold ml-1 text-lg">Server Inspectorᴮᴱᵀᴬ</p>
                     </div>
                     <button onClick={() => setOpen(!open)}><i className="cursor-pointer fa fa-times text-xl mr-2" /></button>
                 </div>
@@ -34,6 +36,18 @@ const MobileNavbar = ({ open, setOpen, NavItems }) => {
                         </div>
                     </a>
                 ))}
+                <Link href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot">
+                    <a className="my-2 cursor-pointer p-4 opacity-75 hover:opacity-100 hover:underline transition-all duration-150 block">
+                        <i className="fas fa-external-link-alt mr-2" />Invite
+                    </a>
+                </Link>
+                <div className="absolute bottom-0 w-full text-center p-4">
+                    <p className="text-white">
+                        {currentYear} © Server Inspector
+                        <br />
+                        Made with ❤️ by Bankkroll
+                    </p>
+                </div>
             </div>
         </div>
     </>
@@ -84,12 +98,12 @@ const Header = ({ $, NavItems }) => {
     return (
         <>
             <header>
-                <div className="max-w-7xl px-5 mx-auto py-5 flex items-center justify-between">
+                <div className="max-w-7xl px-2 mx-auto py-5 flex items-center justify-between">
                     <div className="flex items-center space-x-6">
                         <div className="flex items-center space-x-3">
                         <Image src="/img/logo.jpg" className="rounded-full" width={48} height={48} alt="logo" />
-                            <p className="invisible md:visible text-xl text-white font-semibold">
-                                <a href="/"><span className="text-amber-400">Server</span>Inspector</a>
+                            <p className="text-white font-semibold">
+                                <a href="/"><span className="text-amber-400">Server</span>Inspectorᴮᴱᵀᴬ</a>
                             </p>
                         </div>
                         <ul className="hidden lg:flex items-center space-x-4">
@@ -115,20 +129,6 @@ const Header = ({ $, NavItems }) => {
                         </ul>
                     </div>
                     <div className="flex items-center space-x-2 relative">
-                        <button
-                            onClick={() => setOpen(!open)}
-                            className="
-                                bg-transparent
-                                py-2
-                                px-3
-                                text-white
-                                rounded-md
-                                text-center
-                                lg:hidden
-                                hover:bg-amber-400 hover:bg-opacity-20
-                        ">
-                            <i className={`fa ${open ? 'fa-times' : 'fa-bars'} text-lg`} />
-                        </button>
                         <Menu as="div" className="relative text-left">
                             <div>
                                 <Menu.Button>
@@ -172,11 +172,26 @@ const Header = ({ $, NavItems }) => {
                                 </Menu.Items>
                             </Transition>
                         </Menu>
+                        <button
+                            onClick={() => setOpen(!open)}
+                            className="
+                                bg-transparent
+                                py-2
+                                pl-2
+                                text-white
+                                rounded-md
+                                text-center
+                                lg:hidden
+                                hover:bg-amber-400 hover:bg-opacity-20
+                        ">
+                            <i className={`fa ${open ? 'fa-times' : 'fa-bars'} text-lg`} />
+                        </button>
                         <Link href="https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot">
-                            <a className="w-auto flex items-center justify-center shadow-lg gap-x-2 shadow-amber-600/20 rounded-xl py-2.5 font-medium px-7 bg-gradient-to-tl from-amber-500 to-amber-700 text-white  hover:opacity-80 transition duration-200">
+                            <a className="w-auto md-flex items-center justify-center shadow-lg gap-x-2 shadow-amber-600/20 rounded-xl py-2.5 font-medium px-7 bg-gradient-to-tl from-amber-500 to-amber-700 text-white  hover:opacity-80 transition duration-200 hidden lg:block">
                                 Invite
                             </a>
                         </Link>
+
                     </div>
                 </div>
             </header>

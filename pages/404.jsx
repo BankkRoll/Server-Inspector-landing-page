@@ -1,15 +1,17 @@
 import ErrorPage from '../components/ErrorPage';
+
 const UnknownPage = () => {
     let messages = [
-        "Looks like you've taken a wrong turn in cyberspace.",
-        "This page seems to be hiding. Let's respect its privacy.",
-        "Oh no! The page you're looking for has gone on vacation.",
-        "This page is playing hide and seek. Unfortunately, it's winning.",
-        "Seems like this page has mastered the art of invisibility.",
-        "Error 404. The page is out to lunch."
+        "404: The webpage decided to go on an adventure.",
+        "404: Looks like this webpage got lost in hyperspace.",
+        "404: This webpage is playing hide and seek.",
+        "404: We've looked everywhere, even under the rug. This webpage is definitely not here.",
+        "404: The webpage took a wrong turn at the last byte.",
+        "404: This webpage fell into the Internet blackhole."
     ];
 
-    return <ErrorPage code={404} message={messages[Math.floor(Math.random()*messages.length)] || "Page not found."} />
+    return <ErrorPage message={messages[Math.floor(Math.random()*messages.length)] || "404: Page not found."} />
 }
 
 export default UnknownPage;
+
