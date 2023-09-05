@@ -41,6 +41,7 @@ export default function Commands() {
     { command: "/discord-links", description: "Toggle Discord links from being posted."},
     { command: "/whitelist-links", description: "Whitelist a domain to be allowed in your server."},
     { command: "/whitelist", description: "Whitelist users and roles from being targeted in server scans."},
+    { command: "/linkmask", description: "Toggle link masking protection." },
   ];
 
   return (
