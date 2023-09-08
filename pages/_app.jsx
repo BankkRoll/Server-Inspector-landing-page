@@ -57,7 +57,7 @@ export default function AwardApp({ Component, pageProps }) {
       </Head>
       <main className="transition-all duration-200 z-10 absolute inset-0 px-5 h-screen max-w-7xl w-full mx-auto">
         <Header NavItems={NavItems} />
-        <div className="block px-5 md:px-0">
+        <div className="block md:px-0">
           <Component {...pageProps} />
         </div>
         <Footer />
