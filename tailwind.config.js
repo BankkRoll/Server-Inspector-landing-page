@@ -74,7 +74,14 @@ module.exports = {
                     200: 'var(--200)',
                     100: 'var(--100)',
                     50: 'var(--50)',
-                }
+                },
+                'discord-dark': '#36393f',
+                'discord-middle': '#2f3136',
+                'discord-light': '#b9bbbe',
+                'discord-input': '#40444b',
+                'discord-hover': '#3a3d42',
+                'discord-border': '#202225',
+                'discord-suggestion': '#3c3f43'
             },
         }
     },
