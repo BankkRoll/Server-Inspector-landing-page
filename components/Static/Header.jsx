@@ -178,6 +178,7 @@ const Header = ({ $, NavItems }) => {
                                 bg-transparent
                                 py-2
                                 pr-4
+                                px-2
                                 text-white
                                 rounded-md
                                 text-center

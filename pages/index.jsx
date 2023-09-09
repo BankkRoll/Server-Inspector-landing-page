@@ -106,7 +106,7 @@ export default function Index() {
             <div>
               <div className="text-white">
                 <p className="text-xl font-semibold mt-5"><i className={`fa fa-shield text-2xl text-amber-500`} /> Raid/Link Defence</p>
-                <p className="text-gray-500 line-clamp-4">Configure raid protection, block harmful links, including masked links, and set up custom security parameters for your server.</p>
+                <p className="text-gray-500 line-clamp-4">Configure raid protection, user names to be kicked, links to be blocked and many more! Set custom parameters for your server.</p>
               </div>
             </div>
             <div>
