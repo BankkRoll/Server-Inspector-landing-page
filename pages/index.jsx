@@ -46,23 +46,24 @@ export default function Index() {
         <p className="animateHeader text-white text-opacity-50 text-center mt-5">
           Server Inspectorᴮᴱᵀᴬ is here to monitor your server from bots, links, and other security risks!
         </p>
-        <div className="animateHeader mt-10 flex flex-wrap items-center justify-center gap-x-4">
-            <Link href={"https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot"}>
-              <a
-                className={
-                  "flex items-center px-6 justify-center gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white " 
-                }
-              >
-                Invite Server Inspector
-              </a>
-            </Link>
-            <div className="py-10"></div>
-            <Link href={"https://discord.com/invite/gN6zG964bj"}>
-              <a className={" px-6 justify-center gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white " }>
-                Join Support Server
-              </a>
-            </Link>
-        </div>
+        <div className="animateHeader mt-10 flex flex-col md:flex-row items-center justify-center gap-y-4 md:gap-x-4">
+    <Link href={"/commands"}>
+        <a className={"flex items-center justify-center min-w-[max-content] px-6 gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
+            Command Simulator
+        </a>
+    </Link>
+    <Link href={"https://discord.com/api/oauth2/authorize?client_id=977774758647189506&permissions=8&scope=applications.commands%20bot"}>
+        <a className={"flex items-center justify-center min-w-[max-content] px-6 gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
+            Invite Server Inspector
+        </a>
+    </Link>
+    <Link href={"https://discord.com/invite/gN6zG964bj"}>
+        <a className={"flex items-center justify-center min-w-[max-content] px-6 gap-x-2 shadow-lg shadow-amber-600/20 rounded-xl py-4 font-medium bg-gradient-to-bl from-amber-700 to-amber-500 hover:opacity-80 transition duration-200 text-white"}>
+            Join Support Server
+        </a>
+    </Link>
+</div>
+
 
         <div style={{ zIndex: '-1' }} className="hidden xl:block undrag pointer-events-none opacity-10 -left-[10vw] absolute top-[8vw] h-[35vw] flex-shrink-0 grayscale rotate-[1deg]">
         <Image

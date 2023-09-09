@@ -81,7 +81,8 @@ module.exports = {
                 'discord-input': '#40444b',
                 'discord-hover': '#3a3d42',
                 'discord-border': '#202225',
-                'discord-suggestion': '#3c3f43'
+                'discord-suggestion': '#3c3f43',
+                'discord-selected': '#2f3136',
             },
         }
     },
