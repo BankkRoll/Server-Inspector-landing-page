@@ -296,7 +296,7 @@ export default function Commands() {
                                     className={`mb-5 ${
                                         msg.type === 'user'
                                             ? 'bg-discord-dark'
-                                            : 'bg-discord-hover'
+                                            : 'bg-discord-dark'
                                     }`}
                                 >
                                     <div className="flex text-xs text-discord-light mb-2">
@@ -335,7 +335,7 @@ export default function Commands() {
                     </div>
 
                     {/* Command Input */}
-                    <div className="command-input flex items-center mt-4 md:mt-5 relative text-white">
+                    <div className="command-input text-sm flex items-center mt-4 md:mt-5 relative text-white">
                         <input
                             type="text"
                             placeholder="Type / to see available commands..."
