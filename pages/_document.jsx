@@ -31,7 +31,7 @@ class MyDocument extends Document {
                     <meta property="og:image:alt" content="Server Inspector" />
                     <meta property="og:locale" content="en" />
                     <meta property="og:site_name" content="Server Inspector" />
-                    <meta name="theme-color" content="#6108df" />
+                    <meta name="theme-color" content="#3b82f6" />
                     <link rel="icon" href="/img/logo.jpg" type="image/x-icon" />
                     <link
                         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
