@@ -3,25 +3,26 @@ const { SitemapStream, streamToPromise } = require('sitemap');
 const { createWriteStream } = require('fs');
 
 (async () => {
-  const links = [
-    { url: '/', changefreq: 'daily', priority: 0.8 },
-    { url: '/commands', changefreq: 'monthly', priority: 0.7 },
-    { url: '/privacy', changefreq: 'monthly', priority: 0.7 },
-    { url: '/tos', changefreq: 'monthly', priority: 0.7 },
-    // More pages...
-  ];
-  
-  const stream = new SitemapStream({ hostname: 'https://serverinspector.vercel.app/' });
+    const links = [
+        { url: '/', changefreq: 'monthly', priority: 0.8 },
+        { url: '/commands', changefreq: 'monthly', priority: 0.7 },
+    ];
 
-  // Pass the links to the stream
-  for (let i = 0; i < links.length; i++) {
-    stream.write(links[i]);
-  }
+    const stream = new SitemapStream({
+        hostname: 'https://serverinspector.vercel.app/',
+    });
 
-  stream.end();
+    // Pass the links to the stream
+    for (let i = 0; i < links.length; i++) {
+        stream.write(links[i]);
+    }
 
-  // Wait until the stream ends and get the resulting string
-  const sitemap = await streamToPromise(stream).then((data) => data.toString());
+    stream.end();
 
-  fs.writeFileSync('public/sitemap.xml', sitemap);
+    // Wait until the stream ends and get the resulting string
+    const sitemap = await streamToPromise(stream).then((data) =>
+        data.toString(),
+    );
+
+    fs.writeFileSync('public/sitemap.xml', sitemap);
 })();
