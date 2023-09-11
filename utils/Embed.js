@@ -76,13 +76,19 @@ function Embed({
                         </div>
                     )}
                 </div>
-                {thumbnail && (
-                    <img
-                        src={thumbnail}
-                        alt="Thumbnail"
-                        className="w-12 h-12 rounded-md mr-1 mt-4 md:mt-0"
-                    />
-                )}
+                {
+                    /* TODO: fix thumbnail style and size
+                    {thumbnail && (
+                        <img
+                            src={thumbnail}
+                            alt="Thumbnail"
+                            width={12}
+                            height={12}
+                            className="w-12 h-12 rounded-md mr-1 mt-4 md:mt-0"
+                        />
+                    )}
+                    */
+                }
             </div>
             {buttons && <EmbedButtons buttons={buttons} />}
         </div>
