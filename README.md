@@ -2,6 +2,8 @@
 
 Server Inspectorᴮᴱᵀᴬ is a Discord bot designed to monitor your server from bots, links, and other security risks.
 
+![image](https://github.com/BankkRoll/Server-Inspector-landing-page/assets/106103625/8ef49dd8-da93-4249-b8e5-656b85f67abc)
+
 ## Features
 
 -   **Join Gate**: Multi-step verification panel with buttons, modals, and a in-server 3 step panel. Contains advanced DM reminder for protection & advanced setup for bot defence.
